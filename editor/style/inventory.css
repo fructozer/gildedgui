@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    image-rendering: pixelated;
+}
+body{
+    overflow: hidden; 
+    background: #222  
+}
+[material]{
+    background-size: contain;
+}
+.mcgui {
+    --width: 432px;
+    --height: 215px;
+    background: #c7c7c7;
+    position: fixed;
+    top: calc((100% - var(--height)) / 2);
+    left: calc((100% - var(--width)) / 2);
+    width: var(--width);
+    height: var(--height);
+    padding: 10px;
+    border: black solid 3px;
+    border-radius: 9px;
+}
+.mcgui::before{
+    content: " ";
+    position: absolute;
+    opacity: 0.9;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    border-top: 4px solid #f8f8f8;
+    border-left: 4px solid #f8f8f8;
+    border-radius: 7px;
+    pointer-events: none;
+    z-index: 4;
+}
+.mcgui::after{    
+    content: " ";
+    position: absolute;
+    opacity: 0.9;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    border-bottom: 4px solid #4E534F;
+    border-right: 4px solid #4E534F;
+    border-radius: 7px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mcgui li{
+    background: #8C8A8D;
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    margin-bottom: -3px;
+}
+.mcgui li::before{
+    content: " ";
+    position: absolute;
+    opacity: 0.8;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    border-top: 3px solid #1e1e1e;
+    border-left: 3px solid #1e1e1e;
+    pointer-events: none;
+    z-index: 4;
+}
+.mcgui li::after{    
+    content: " ";
+    position: absolute;
+    opacity: 0.9;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    border-bottom: 3px solid #f7f7f7;
+    border-right: 3px solid #f7f7f7;
+    pointer-events: none;
+    z-index: 0;
+}
+.mcgui li>span, .drag{
+    position: absolute;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    z-index: 5;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.drag{
+    position: fixed;
+    top: 10px;
+    left: 0;
+    pointer-events: none;
+    z-index: 11;
+}
+
+[amount]:not([amount="1"])::before{
+    content: attr(amount);
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    font-weight: 600;
+}
+.mcgui li:hover{
+    filter: brightness(1.3);
+    z-index: 10;
+}
+.mcgui>span{
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+.mcgui>span>span{
+    outline: 0;
+}
+.lore{
+    display: none;
+    pointer-events: none;
+    padding-block: 2px;
+    padding-inline: 5px;
+    left: 48px;
+    color: white;
+    background: rgba(31, 10, 31, 0.95);
+    /* outline: 2px solid black; */
+    border: 2px solid rgb(15, 3, 58);
+    border-radius: 3px;
+}
+span:hover>.lore{
+    display: inline;
+    position: absolute;
+    width: max-content;
+    font-weight: 100;
+}
